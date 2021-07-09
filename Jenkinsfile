@@ -31,7 +31,7 @@ pipeline {
             gitTool: 'Default',
             submoduleCfg: [],
             userRemoteConfigs: [[
-                credentialsId: 'GitHub_nicolaspa1',
+                credentialsId: 'GitHub_nicolasPACEIBA',
                 url:'https://github.com/nicolaspa1/cine-ceiba'
             ]]
         ])
