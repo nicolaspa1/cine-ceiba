@@ -35,7 +35,7 @@ pipeline {
                 url:'https://github.com/nicolaspa1/cine-ceiba'
             ]]
         ])
-        sh 'gradle --b ./microservicio/build.gradle clean'
+//         sh 'gradle --b ./microservicio/build.gradle clean'
       }
     }
 
