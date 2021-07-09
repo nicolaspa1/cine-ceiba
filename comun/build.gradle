@@ -1,0 +1,34 @@
+allprojects {
+
+	repositories {
+		mavenCentral()		
+	}
+	
+	project.ext.swagger = [
+							"io.springfox:springfox-swagger-ui:2.9.2",
+							"io.springfox:springfox-swagger2:2.9.2"
+						  ]
+	project.ext.apachecommons = [
+									"commons-io:commons-io:2.7",
+									"org.apache.commons:commons-lang3:3.7"
+								]
+	
+	project.ext.springbootweb = ["org.springframework.boot:spring-boot-starter-web:${springBootVersion}"]
+	project.ext.springdevtools = ["org.springframework.boot:spring-boot-devtools:${springBootVersion}"]
+	
+	project.ext.springbootjdbc = ["org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"]
+	
+	project.ext.springtxt = [
+							  	"org.springframework:spring-tx:${springVersion}",
+							  	"org.springframework:spring-context:${springVersion}"
+							]
+	
+	project.ext.springbootjasypt = ['com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1']
+	
+	project.ext.junit = ["junit:junit:4.12"]
+	project.ext.mockito = ['org.mockito:mockito-all:1.10.19']
+	project.ext.h2 = ["com.h2database:h2:1.4.194"]
+	project.ext.actuator=["org.springframework.boot:spring-boot-starter-actuator:2.1.6.RELEASE"]
+	
+
+}

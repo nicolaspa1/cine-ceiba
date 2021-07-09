@@ -1,0 +1,18 @@
+rootProject.name = 'cine'
+
+include ':infraestructura'
+include ':aplicacion'
+include ':dominio'
+
+include ':comun', 
+		':comun:comun-infraestructura', 
+		':comun:comun-aplicacion', 
+		':comun:comun-dominio',
+		':comun:comun-test'
+
+project(':comun').projectDir = new File('../comun')
+
+project(':comun:comun-infraestructura').projectDir = new File('../comun/comun-infraestructura')
+project(':comun:comun-aplicacion').projectDir = new File('../comun/comun-aplicacion')
+project(':comun:comun-dominio').projectDir = new File('../comun/comun-dominio')
+project(':comun:comun-test').projectDir = new File('../comun/comun-test')

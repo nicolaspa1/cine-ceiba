@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
+
+group = 'com.ceiba'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation project.ext.junit4
+	testImplementation project.ext.junit5
+	testImplementation project.ext.h2
+	testImplementation project.ext.springboottest
+	implementation project.ext.springbootweb
+	implementation project.ext.swagger
+
+	implementation project.ext.apachecommons
+	implementation project.ext.springbootjdbc
+	runtimeOnly project.ext.db
+	testImplementation project.ext.flywaytest
+
+	
+	implementation project(':dominio')
+	implementation project(':aplicacion')
+
+
+	implementation project(':comun:comun-infraestructura')
+	implementation project(':comun:comun-aplicacion')
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		html.enabled true
+	}
+	additionalSourceDirs files("../aplicacion/src/main/java")
+	additionalClassDirs files("../aplicacion/build/classes/java/main")
+}
+
+test {
+	finalizedBy jacocoTestReport
+}

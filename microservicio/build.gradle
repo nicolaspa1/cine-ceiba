@@ -1,0 +1,90 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath 'org.owasp:dependency-check-gradle:6.2.2'
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version  "${springBootVersion}"
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+
+allprojects {
+    repositories {
+        mavenCentral() 
+    }
+	apply plugin: 'org.owasp.dependencycheck'
+
+	project.ext.apachecommons = [
+			"commons-io:commons-io:2.6",
+			"org.apache.commons:commons-lang3:3.7"
+	]
+	
+	tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+	tasks.withType(Test) { systemProperty "file.encoding", "UTF-8" }
+
+	project.ext.junit5 = ["org.junit.jupiter:junit-jupiter-api:5.3.1"]
+	project.ext.junit4 = ["junit:junit:4.12"]
+	project.ext.mockito = ['org.mockito:mockito-all:1.10.19']
+	project.ext.lombok = ["org.projectlombok:lombok:1.18.10"]
+	
+	project.ext.springboottest = ["org.springframework.boot:spring-boot-starter-test:${springBootVersion}"]
+	project.ext.springbootweb = ["org.springframework.boot:spring-boot-starter-web:${springBootVersion}"]
+	project.ext.springdevtools = ["org.springframework.boot:spring-boot-devtools:${springBootVersion}"]
+	project.ext.springbootundertow = ["org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"]
+	project.ext.springbootjasypt = ['com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1']
+	
+	project.ext.springtxt = [
+							  	"org.springframework:spring-tx:${springVersion}",
+							  	"org.springframework:spring-context:${springVersion}"
+							]
+
+	project.ext.swagger = [
+			"io.springfox:springfox-swagger-ui:2.9.2",
+			"io.springfox:springfox-swagger2:2.9.2"
+	]
+
+	project.ext.db = ["mysql:mysql-connector-java:8.0.25"]
+
+	project.ext.springbootjdbc = ["org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"]
+	project.ext.flyway = ["org.flywaydb:flyway-core:5.2.1"]
+	project.ext.flywaytest = ["org.flywaydb.flyway-test-extensions:flyway-spring-test:5.2.1"]
+
+	project.ext.h2 = ["com.h2database:h2:1.4.194"]
+}
+
+group = 'com.ceiba'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	configurations {
+    	runtime.exclude module: 'spring-boot-starter-tomcat'
+    	compile.exclude module: 'spring-boot-starter-tomcat'
+	}
+
+	implementation project.ext.springbootweb
+	runtimeOnly project.ext.springdevtools
+	
+	implementation project.ext.springbootundertow
+	implementation project.ext.flyway
+
+	implementation project(':infraestructura')
+}
+
+bootJar {
+	mainClassName = 'com.ceiba.Application'
+    baseName = 'cine'
+    version =  version
+}

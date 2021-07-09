@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+group = 'com.ceiba'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation project.ext.junit4
+	testImplementation project.ext.junit5
+	testImplementation project.ext.mockito
+	testImplementation project(':comun:comun-test')
+
+	implementation project(':comun:comun-dominio')
+
+	compileOnly project.ext.lombok
+	annotationProcessor project.ext.lombok
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		html.enabled true
+	}
+}
+
+test {
+	finalizedBy jacocoTestReport
+}
