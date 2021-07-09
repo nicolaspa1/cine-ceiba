@@ -3,7 +3,6 @@ package com.ceiba.afiliado.servicio;
 import com.ceiba.afiliado.modelo.entidad.Afiliado;
 import com.ceiba.afiliado.puerto.repositorio.RepositorioAfiliado;
 import com.ceiba.afiliado.utils.MensajesDeExcepcion;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.afiliado.servicio.testdatabuilder.AfiliadoTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
 import org.junit.Test;

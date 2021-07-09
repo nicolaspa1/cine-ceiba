@@ -2,9 +2,11 @@ package com.ceiba.afiliado.consulta;
 
 import com.ceiba.afiliado.modelo.dto.DtoAfiliado;
 import com.ceiba.afiliado.puerto.dao.DaoAfiliado;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class ManejadorListarAfiliados {
     private final DaoAfiliado daoAfiliado;
 

@@ -1,0 +1,1 @@
+select * from afiliado where id = :id

@@ -1,6 +1,7 @@
 package com.ceiba.entrada.servicio;
 
 import com.ceiba.afiliado.modelo.entidad.Afiliado;
+import com.ceiba.afiliado.puerto.repositorio.RepositorioAfiliado;
 import com.ceiba.afiliado.utils.MensajesDeExcepcion;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.entrada.modelo.entidad.Entrada;
@@ -11,13 +12,14 @@ import java.time.LocalDate;
 public class ServicioCalcularPrecioEntrada {
 
     private static final double DESCUENTO_LUNES_Y_MARTES_AFILIADO = 0.5;
-    private static final double DESCUENTO_LUNES_Y_MARTES_NO_AFILIADO = 0.1;
+    private static final double DESCUENTO_LUNES_Y_MARTES_NO_AFILIADO = 0.9;
     private static final double DESCUENTO_MIERCOLES_JUEVES_AFILIADO = 0.5;
-    private static final double DESCUENTO_VIERNES_AFILIADO = 0.3;
+    private static final double DESCUENTO_VIERNES_AFILIADO = 0.7;
 
     private static final double AUMENTO_FIN_DE_SEMANA = 0.25;
 
     private final RepositorioEntrada repositorioEntrada;
+
 
     public ServicioCalcularPrecioEntrada(RepositorioEntrada repositorioEntrada) {
         this.repositorioEntrada = repositorioEntrada;

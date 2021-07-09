@@ -7,9 +7,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.entrada.comando.ComandoUsuario;
-import com.ceiba.entrada.controlador.ComandoControladorUsuario;
-import com.ceiba.entrada.servicio.testdatabuilder.ComandoUsuarioTestDataBuilder;
+import com.ceiba.entrada.comando.ComandoEntrada;
+import com.ceiba.entrada.servicio.testdatabuilder.ComandoEntradaTestDataBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest(ComandoControladorUsuario.class)
-public class ComandoControladorUsuarioTest {
+@WebMvcTest(ComandoControladorEntrada.class)
+public class ComandoControladorEntradaTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -34,12 +33,12 @@ public class ComandoControladorUsuarioTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoEntrada entrada = new ComandoEntradaTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/usuarios")
+        mocMvc.perform(post("/entradas")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
+                .content(objectMapper.writeValueAsString(entrada)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
     }
@@ -48,10 +47,10 @@ public class ComandoControladorUsuarioTest {
     public void actualizar() throws Exception{
         // arrange
         Long id = 2L;
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoEntrada usuario = new ComandoEntradaTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/usuarios/{id}",id)
+        mocMvc.perform(put("/entradas/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(usuario)))
                 .andExpect(status().isOk());
@@ -63,7 +62,7 @@ public class ComandoControladorUsuarioTest {
         Long id = 2L;
 
         // act - assert
-        mocMvc.perform(delete("/usuarios/{id}",id)
+        mocMvc.perform(delete("/entradas/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

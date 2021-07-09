@@ -30,8 +30,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioCrearEntrada servicioCrearEntrada (RepositorioEntrada repositorioEntrada) {
-        return new ServicioCrearEntrada(repositorioEntrada);
+    public ServicioCrearEntrada servicioCrearEntrada (RepositorioEntrada repositorioEntrada, RepositorioAfiliado repositorioAfiliado,ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada) {
+        return new ServicioCrearEntrada(repositorioEntrada,repositorioAfiliado,servicioCalcularPrecioEntrada);
     }
 
     @Bean

@@ -1,7 +1,7 @@
 package com.ceiba.entrada.controlador;
 
-import com.ceiba.afiliado.consulta.ManejadorListarAfiliados;
 import com.ceiba.afiliado.modelo.dto.DtoAfiliado;
+import com.ceiba.entrada.consulta.ManejadorListarEntradas;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/afiliados")
-@Api(tags={"Controlador consulta afiliado"})
+@RequestMapping("/entradas")
+@Api(tags={"Controlador consulta entradas"})
 public class ConsultaControladorEntrada {
 
-    private final ManejadorListarAfiliados manejadorListarAfiliados;
+    private final ManejadorListarEntradas manejadorListarEntradas;
 
-    public ConsultaControladorEntrada(ManejadorListarAfiliados manejadorListarAfiliados) {
-        this.manejadorListarAfiliados = manejadorListarAfiliados;
+    public ConsultaControladorEntrada(ManejadorListarEntradas manejadorListarEntradas) {
+        this.manejadorListarEntradas = manejadorListarEntradas;
     }
 
 
     @GetMapping
-    @ApiOperation("Listar Afiliados")
+    @ApiOperation("Listar Entradas")
     public List<DtoAfiliado> listar() {
-        return this.manejadorListarAfiliados.ejecutar();
+        return this.manejadorListarEntradas.ejecutar();
     }
 
 }

@@ -2,49 +2,48 @@ package com.ceiba.entrada.controlador;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.afiliado.comando.ComandoAfiliado;
-import com.ceiba.afiliado.comando.manejador.ManejadorActualizarAfiliado;
-import com.ceiba.afiliado.comando.manejador.ManejadorCrearAfiliado;
-import com.ceiba.afiliado.comando.manejador.ManejadorEliminarAfiliado;
+import com.ceiba.entrada.comando.ComandoEntrada;
+import com.ceiba.entrada.comando.manejador.ManejadorCalcularPrecioEntrada;
+import com.ceiba.entrada.comando.manejador.ManejadorCrearEntrada;
+import com.ceiba.entrada.comando.manejador.ManejadorEliminarEntrada;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/afiliados")
-@Api(tags = { "Controlador comando afiliado"})
+@RequestMapping("/entradas")
+@Api(tags = { "Controlador comando entrada"})
 public class ComandoControladorEntrada {
 
-    private final ManejadorCrearAfiliado manejadorCrearAfiliado;
-	private final ManejadorEliminarAfiliado manejadorEliminarAfiliado;
-	private final ManejadorActualizarAfiliado manejadorActualizarAfiliado;
+    private final ManejadorCrearEntrada manejadorCrearEntrada;
+    private final ManejadorEliminarEntrada manejadorEliminarEntrada;
+    private final ManejadorCalcularPrecioEntrada manejadorCalcularPrecioEntrada;
 
-    @Autowired
-    public ComandoControladorEntrada(ManejadorCrearAfiliado manejadorCrearAfiliado,
-									 ManejadorEliminarAfiliado manejadorEliminarAfiliado,
-									 ManejadorActualizarAfiliado manejadorActualizarAfiliado) {
-        this.manejadorCrearAfiliado = manejadorCrearAfiliado;
-		this.manejadorEliminarAfiliado = manejadorEliminarAfiliado;
-		this.manejadorActualizarAfiliado = manejadorActualizarAfiliado;
-    }
+	@Autowired
+	public ComandoControladorEntrada(ManejadorCrearEntrada manejadorCrearEntrada, ManejadorEliminarEntrada manejadorEliminarEntrada, ManejadorCalcularPrecioEntrada manejadorCalcularPrecioEntrada) {
+		this.manejadorCrearEntrada = manejadorCrearEntrada;
+		this.manejadorEliminarEntrada = manejadorEliminarEntrada;
+		this.manejadorCalcularPrecioEntrada = manejadorCalcularPrecioEntrada;
+	}
+
 
     @PostMapping
-    @ApiOperation("Crear Afiliado")
-    public ComandoRespuesta<Long> crear(@RequestBody ComandoAfiliado comandoAfiliado) {
-        return manejadorCrearAfiliado.ejecutar(comandoAfiliado);
+    @ApiOperation("Crear Entrada")
+    public ComandoRespuesta<Long> crear(@RequestBody ComandoEntrada comandoEntrada) {
+        return manejadorCrearEntrada.ejecutar(comandoEntrada);
     }
 
     @DeleteMapping(value="/{id}")
-	@ApiOperation("Eliminar Afiliado")
-	public void eliminar(@RequestBody ComandoAfiliado comandoAfiliado, @PathVariable Long id) {
-    	comandoAfiliado.setId(id);
-		manejadorEliminarAfiliado.ejecutar(comandoAfiliado);
+	@ApiOperation("Eliminar Entrada")
+	public void eliminar(@RequestBody ComandoEntrada comandoEntrada, @PathVariable Long id) {
+		comandoEntrada.setId(id);
+		manejadorEliminarEntrada.ejecutar(comandoEntrada);
 	}
 
 	@PutMapping(value="/{id}")
-	@ApiOperation("Actualizar Afiliado")
-	public void actualizar(@RequestBody ComandoAfiliado comandoAfiliado,@PathVariable Long id) {
-		comandoAfiliado.setId(id);
-		manejadorActualizarAfiliado.ejecutar(comandoAfiliado);
+	@ApiOperation("Calcular precio entrada")
+	public ComandoRespuesta<Double> calcularPrecio(@RequestBody ComandoEntrada comandoEntrada) {
+		return manejadorCalcularPrecioEntrada.ejecutar(comandoEntrada);
 	}
 }

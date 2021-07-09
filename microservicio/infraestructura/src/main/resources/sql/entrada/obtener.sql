@@ -1,0 +1,1 @@
+select * from entrada where id = :id
