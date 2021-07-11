@@ -23,13 +23,13 @@ public class ServicioCalcularPrecioEntrada {
     public Double ejecutar(Entrada entrada, Afiliado afiliado){
         Boolean hayDescuento = this.repositorioEntrada.ofertaDeAfiliado(afiliado.getTipoDocumento(), afiliado.getNumeroDocumento());
         Double precioEntrada = entrada.getPrecio();
-        if (entrada.promoLunesMartes()&&hayDescuento){
+        if (Boolean.TRUE.equals(entrada.promoLunesMartes()&&hayDescuento)){
             return precioEntrada*DESCUENTO_LUNES_Y_MARTES_AFILIADO;
         }
-        if (entrada.promoMiercolesJueves()&&hayDescuento){
+        if (Boolean.TRUE.equals(entrada.promoMiercolesJueves()&&hayDescuento)){
             return precioEntrada*DESCUENTO_MIERCOLES_JUEVES_AFILIADO;
         }
-        if (entrada.promoViernes()&&hayDescuento){
+        if (Boolean.TRUE.equals(entrada.promoViernes()&&hayDescuento)){
             return precioEntrada*DESCUENTO_VIERNES_AFILIADO;
         }
         return precioEntrada;

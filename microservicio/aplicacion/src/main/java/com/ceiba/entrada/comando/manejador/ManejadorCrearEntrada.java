@@ -1,7 +1,6 @@
 package com.ceiba.entrada.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.afiliado.comando.fabrica.FabricaAfiliado;
 import com.ceiba.afiliado.modelo.entidad.Afiliado;
 import com.ceiba.entrada.comando.ComandoEntrada;
 import com.ceiba.entrada.comando.fabrica.FabricaEntrada;
