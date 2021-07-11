@@ -3,7 +3,6 @@ package com.ceiba.afiliado.servicio;
 import com.ceiba.afiliado.modelo.entidad.Afiliado;
 import com.ceiba.afiliado.puerto.repositorio.RepositorioAfiliado;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
-import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.afiliado.utils.MensajesDeExcepcion;
 
 public class ServicioActualizarAfiliado {

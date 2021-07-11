@@ -17,11 +17,11 @@ public class MapeoAfiliado implements RowMapper<DtoAfiliado>, MapperResult {
         String nombre = resultSet.getString("nombre");
         String tipoDocumento = resultSet.getString("tipo_documento");
         String numeroDocumento= resultSet.getString("numero_documento");
-        LocalDateTime fechaNacimiento = extraerLocalDateTime(resultSet, "fecha_nacimiento");;
+        LocalDateTime fechaNacimiento = extraerLocalDateTime(resultSet, "fecha_nacimiento");
         String email= resultSet.getString("email");
         String direccion= resultSet.getString("direccion");
         String telefono= resultSet.getString("telefono");
-        LocalDateTime fechaRegistro = extraerLocalDateTime(resultSet, "fecha_registro");;
+        LocalDateTime fechaRegistro = extraerLocalDateTime(resultSet, "fecha_registro");
 
         return new DtoAfiliado(id,nombre,tipoDocumento,numeroDocumento,fechaNacimiento,email,direccion,
                 telefono,fechaRegistro);

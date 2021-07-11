@@ -1,6 +1,5 @@
 package com.ceiba.entrada.controlador;
 
-import com.ceiba.afiliado.modelo.dto.DtoAfiliado;
 import com.ceiba.entrada.consulta.ManejadorListarEntradas;
 import com.ceiba.entrada.modelo.dto.DtoEntrada;
 import io.swagger.annotations.Api;

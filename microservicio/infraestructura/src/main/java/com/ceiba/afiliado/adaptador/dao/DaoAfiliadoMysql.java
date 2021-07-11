@@ -2,7 +2,6 @@ package com.ceiba.afiliado.adaptador.dao;
 
 import com.ceiba.afiliado.modelo.dto.DtoAfiliado;
 import com.ceiba.afiliado.puerto.dao.DaoAfiliado;
-import com.ceiba.entrada.modelo.dto.DtoEntrada;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

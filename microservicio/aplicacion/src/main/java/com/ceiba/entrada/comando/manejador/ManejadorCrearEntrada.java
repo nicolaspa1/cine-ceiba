@@ -13,13 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class ManejadorCrearEntrada implements ManejadorComandoRespuesta<ComandoEntrada, ComandoRespuesta<Long>> {
     private final FabricaEntrada fabricaEntrada;
-    private final FabricaAfiliado fabricaAfiliado;
 
     private final ServicioCrearEntrada servicioCrearEntrada;
 
-    public ManejadorCrearEntrada(FabricaEntrada fabricaEntrada, FabricaAfiliado fabricaAfiliado, ServicioCrearEntrada servicioCrearEntrada) {
+    public ManejadorCrearEntrada(FabricaEntrada fabricaEntrada, ServicioCrearEntrada servicioCrearEntrada) {
         this.fabricaEntrada = fabricaEntrada;
-        this.fabricaAfiliado = fabricaAfiliado;
         this.servicioCrearEntrada = servicioCrearEntrada;
     }
 

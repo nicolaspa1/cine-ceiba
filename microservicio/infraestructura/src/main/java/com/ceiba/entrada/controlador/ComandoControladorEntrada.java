@@ -1,7 +1,6 @@
 package com.ceiba.entrada.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.afiliado.comando.ComandoAfiliado;
 import com.ceiba.entrada.comando.ComandoEntrada;
 import com.ceiba.entrada.comando.manejador.ManejadorCalcularPrecioEntrada;
 import com.ceiba.entrada.comando.manejador.ManejadorCrearEntrada;
@@ -39,7 +38,7 @@ public class ComandoControladorEntrada {
 	public void eliminar(@PathVariable Long id) {
 		manejadorEliminarEntrada.ejecutar(id);
 	}
-//TODO: Modficar
+
 	@PostMapping(value="/precio-entrada")
 	@ApiOperation("Calcular precio entrada")
 	public ComandoRespuesta<Double> calcularPrecio(@RequestBody ComandoEntrada comandoEntrada) {

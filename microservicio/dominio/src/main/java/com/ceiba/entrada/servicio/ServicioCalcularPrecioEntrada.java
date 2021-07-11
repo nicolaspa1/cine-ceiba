@@ -1,13 +1,8 @@
 package com.ceiba.entrada.servicio;
 
 import com.ceiba.afiliado.modelo.entidad.Afiliado;
-import com.ceiba.afiliado.puerto.repositorio.RepositorioAfiliado;
-import com.ceiba.afiliado.utils.MensajesDeExcepcion;
-import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.entrada.modelo.entidad.Entrada;
 import com.ceiba.entrada.puerto.repositorio.RepositorioEntrada;
-
-import java.time.LocalDate;
 
 public class ServicioCalcularPrecioEntrada {
 

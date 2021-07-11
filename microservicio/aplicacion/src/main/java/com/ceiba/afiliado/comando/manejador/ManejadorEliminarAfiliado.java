@@ -1,6 +1,5 @@
 package com.ceiba.afiliado.comando.manejador;
 
-import com.ceiba.afiliado.comando.ComandoAfiliado;
 import com.ceiba.afiliado.servicio.ServicioEliminarAfiliado;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
