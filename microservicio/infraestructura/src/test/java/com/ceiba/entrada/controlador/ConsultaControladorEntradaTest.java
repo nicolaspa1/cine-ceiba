@@ -1,4 +1,4 @@
-package com.ceiba.afiliado.controlador;
+package com.ceiba.entrada.controlador;
 
 import com.ceiba.ApplicationMock;
 import org.junit.Test;
@@ -18,8 +18,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest(ConsultaControladorAfiliado.class)
-public class ConsultaControladorAfiliadoTest {
+@WebMvcTest(ConsultaControladorEntrada.class)
+public class ConsultaControladorEntradaTest {
 
 
     @Autowired
@@ -30,11 +30,12 @@ public class ConsultaControladorAfiliadoTest {
         // arrange
 
         // act - assert
-        mocMvc.perform(get("/afiliados")
+        mocMvc.perform(get("/entradas")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].nombre", is("Nicolas")));
+                .andExpect(jsonPath("$[0].nombrePelicula", is("el padrino")));
+
     }
 
 
