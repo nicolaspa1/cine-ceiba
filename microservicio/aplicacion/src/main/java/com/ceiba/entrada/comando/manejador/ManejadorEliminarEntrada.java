@@ -7,7 +7,7 @@ import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ManejadorEliminarEntrada implements ManejadorComando<ComandoEntrada> {
+public class ManejadorEliminarEntrada implements ManejadorComando<Long> {
     private final ServicioEliminarEntrada servicioEliminarEntrada;
 
     public ManejadorEliminarEntrada(ServicioEliminarEntrada servicioEliminarEntrada) {
@@ -15,7 +15,7 @@ public class ManejadorEliminarEntrada implements ManejadorComando<ComandoEntrada
     }
 
     @Override
-    public void ejecutar(ComandoEntrada comando) {
-        this.servicioEliminarEntrada.ejecutar(comando.getId());
+    public void ejecutar(Long id ) {
+        this.servicioEliminarEntrada.ejecutar(id);
     }
 }

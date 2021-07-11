@@ -1,13 +1,9 @@
-package com.ceiba.entrada.controlador;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+package com.ceiba.afiliado.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.entrada.comando.ComandoEntrada;
-import com.ceiba.entrada.servicio.testdatabuilder.ComandoEntradaTestDataBuilder;
+import com.ceiba.afiliado.comando.ComandoAfiliado;
+import com.ceiba.afiliado.testdatabuilder.ComandoAfiliadoTestDataBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +13,16 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest(ComandoControladorEntrada.class)
-
-public class ComandoControladorEntradaTest {
+@WebMvcTest(ComandoControladorAfiliado.class)
+public class ComandoControladorAfiliadoTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -34,12 +33,12 @@ public class ComandoControladorEntradaTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoEntrada entrada = new ComandoEntradaTestDataBuilder().fechaFuncionLunesMartes().build();
+        ComandoAfiliado afiliado = new ComandoAfiliadoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/entradas")
+        mocMvc.perform(post("/afiliados")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(entrada)))
+                .content(objectMapper.writeValueAsString(afiliado)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
     }
@@ -48,10 +47,10 @@ public class ComandoControladorEntradaTest {
     @Test
     public void eliminar() throws Exception {
         // arrange
-        Long id = 2L;
+        Long id = 1L;
 
         // act - assert
-        mocMvc.perform(delete("/entradas/{id}",id)
+        mocMvc.perform(delete("/afiliados/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

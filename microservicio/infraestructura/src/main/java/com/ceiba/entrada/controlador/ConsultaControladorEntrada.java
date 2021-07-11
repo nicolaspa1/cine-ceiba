@@ -2,6 +2,7 @@ package com.ceiba.entrada.controlador;
 
 import com.ceiba.afiliado.modelo.dto.DtoAfiliado;
 import com.ceiba.entrada.consulta.ManejadorListarEntradas;
+import com.ceiba.entrada.modelo.dto.DtoEntrada;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class ConsultaControladorEntrada {
 
     @GetMapping
     @ApiOperation("Listar Entradas")
-    public List<DtoAfiliado> listar() {
+    public List<DtoEntrada> listar() {
         return this.manejadorListarEntradas.ejecutar();
     }
 

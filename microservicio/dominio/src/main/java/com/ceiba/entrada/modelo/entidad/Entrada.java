@@ -12,11 +12,11 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 @Getter
 public class Entrada {
 
-    private  final Long id;
-    private  final Integer numeroFuncion;
+    private   Long id;
+    private   Integer numeroFuncion;
     private  Double precio;
-    private  final String nombrePelicula;
-    private  final LocalDateTime fechaFuncion;
+    private   String nombrePelicula;
+    private   LocalDateTime fechaFuncion;
 
     public Entrada(Long id, Integer numeroFuncion, Double precio, String nombrePelicula, LocalDateTime fechaFuncion) {
         validarObligatorio(numeroFuncion,MensajesDeExcepcionEntrada.SE_DEBE_INGRESAR_EL_NUMERO_DE_LA_FUNCION.getMensaje());

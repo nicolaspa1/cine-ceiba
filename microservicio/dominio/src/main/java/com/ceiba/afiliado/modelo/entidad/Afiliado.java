@@ -10,15 +10,15 @@ import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class Afiliado {
-    private final Long id;
-    private final String nombre;
-    private final String tipoDocumento;
-    private final String numeroDocumento;
-    private final LocalDateTime fechaNacimiento;
-    private final String email;
-    private final String direccion;
-    private final String telefono;
-    private final LocalDateTime fechaRegistro;
+    private Long id;
+    private String nombre;
+    private String tipoDocumento;
+    private String numeroDocumento;
+    private LocalDateTime fechaNacimiento;
+    private String email;
+    private String direccion;
+    private String telefono;
+    private LocalDateTime fechaRegistro;
 
     public Afiliado(Long id, String nombre, String tipoDocumento, String numeroDocumento, LocalDateTime fechaNacimiento, String email, String direccion, String telefono, LocalDateTime fechaRegistro) {
         validarObligatorio(nombre,MensajesDeExcepcion.SE_DEBE_INGRESAR_EL_NOMBRE_DEL_AFILIADO.getMensaje());

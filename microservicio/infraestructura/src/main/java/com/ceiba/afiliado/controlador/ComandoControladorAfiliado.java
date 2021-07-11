@@ -36,9 +36,8 @@ public class ComandoControladorAfiliado {
 
     @DeleteMapping(value="/{id}")
 	@ApiOperation("Eliminar Afiliado")
-	public void eliminar(@RequestBody ComandoAfiliado comandoAfiliado, @PathVariable Long id) {
-    	comandoAfiliado.setId(id);
-		manejadorEliminarAfiliado.ejecutar(comandoAfiliado);
+	public void eliminar(@PathVariable Long id) {
+		manejadorEliminarAfiliado.ejecutar(id);
 	}
 
 	@PutMapping(value="/{id}")

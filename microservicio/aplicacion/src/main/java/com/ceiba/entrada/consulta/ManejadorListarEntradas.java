@@ -2,18 +2,20 @@ package com.ceiba.entrada.consulta;
 
 import com.ceiba.afiliado.modelo.dto.DtoAfiliado;
 import com.ceiba.afiliado.puerto.dao.DaoAfiliado;
+import com.ceiba.entrada.modelo.dto.DtoEntrada;
+import com.ceiba.entrada.puerto.dao.DaoEntrada;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Component
 public class ManejadorListarEntradas {
-    private final DaoAfiliado daoAfiliado;
+    private final DaoEntrada daoEntrada;
 
-    public ManejadorListarEntradas(DaoAfiliado daoAfiliado) {
-        this.daoAfiliado = daoAfiliado;
+    public ManejadorListarEntradas(DaoEntrada daoEntrada) {
+        this.daoEntrada = daoEntrada;
     }
 
-    public List<DtoAfiliado> ejecutar(){
-        return this.daoAfiliado.listar();
+    public List<DtoEntrada> ejecutar(){
+        return this.daoEntrada.listar();
     }
 }

@@ -1,6 +1,5 @@
 package com.ceiba.entrada.servicio.testdatabuilder;
 
-import com.ceiba.afiliado.servicio.testdatabuilder.AfiliadoTestDataBuilder;
 import com.ceiba.entrada.modelo.entidad.Entrada;
 
 import java.time.LocalDateTime;

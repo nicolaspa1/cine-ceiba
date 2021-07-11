@@ -36,12 +36,11 @@ public class ComandoControladorEntrada {
 
     @DeleteMapping(value="/{id}")
 	@ApiOperation("Eliminar Entrada")
-	public void eliminar(@RequestBody ComandoEntrada comandoEntrada, @PathVariable Long id) {
-		comandoEntrada.setId(id);
-		manejadorEliminarEntrada.ejecutar(comandoEntrada);
+	public void eliminar(@PathVariable Long id) {
+		manejadorEliminarEntrada.ejecutar(id);
 	}
-
-	@PutMapping(value="/{id}")
+//TODO: Modficar
+	@PostMapping(value="/precio-entrada")
 	@ApiOperation("Calcular precio entrada")
 	public ComandoRespuesta<Double> calcularPrecio(@RequestBody ComandoEntrada comandoEntrada) {
 		return manejadorCalcularPrecioEntrada.ejecutar(comandoEntrada);

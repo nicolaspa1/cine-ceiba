@@ -1,7 +1,5 @@
 package com.ceiba.entrada.adaptador.repositorio;
 
-import com.ceiba.afiliado.modelo.entidad.Afiliado;
-import com.ceiba.afiliado.puerto.repositorio.RepositorioAfiliado;
 import com.ceiba.entrada.modelo.entidad.Entrada;
 import com.ceiba.entrada.puerto.repositorio.RepositorioEntrada;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;

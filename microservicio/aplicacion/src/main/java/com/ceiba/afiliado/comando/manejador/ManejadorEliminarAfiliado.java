@@ -6,7 +6,7 @@ import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ManejadorEliminarAfiliado implements ManejadorComando<ComandoAfiliado> {
+public class ManejadorEliminarAfiliado implements ManejadorComando<Long> {
     private final ServicioEliminarAfiliado servicioEliminarAfiliado;
 
     public ManejadorEliminarAfiliado(ServicioEliminarAfiliado servicioEliminarAfiliado) {
@@ -15,7 +15,7 @@ public class ManejadorEliminarAfiliado implements ManejadorComando<ComandoAfilia
 
 
     @Override
-    public void ejecutar(ComandoAfiliado comando) {
-    this.servicioEliminarAfiliado.ejecutar(comando.getId());
+    public void ejecutar(Long id) {
+    this.servicioEliminarAfiliado.ejecutar(id);
     }
 }

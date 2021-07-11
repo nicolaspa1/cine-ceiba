@@ -14,11 +14,10 @@ public class ComandoEntradaTestDataBuilder {
     private   LocalDateTime fechaFuncion;
 
     public ComandoEntradaTestDataBuilder() {
-        this.id = 2L;
         this.numeroFuncion = 2;
         this.precio = 10000.0;
         this.nombrePelicula = "Tron";
-        this.fechaFuncion = LocalDateTime.now().plusDays(4);
+        this.fechaFuncion = LocalDateTime.now().of(2021, Month.JULY, 10, 18, 00);
     }
     public ComandoEntradaTestDataBuilder fechaFuncionFinDeSemana() {
         this.fechaFuncion = LocalDateTime.of(2021, Month.JULY, 10, 18, 00);
