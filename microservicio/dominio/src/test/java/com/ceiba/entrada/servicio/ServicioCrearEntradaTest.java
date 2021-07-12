@@ -2,6 +2,9 @@ package com.ceiba.entrada.servicio;
 
 
 import com.ceiba.BasePrueba;
+import com.ceiba.afiliado.modelo.entidad.Afiliado;
+import com.ceiba.afiliado.puerto.repositorio.RepositorioAfiliado;
+import com.ceiba.afiliado.servicio.testdatabuilder.AfiliadoTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.entrada.modelo.entidad.Entrada;
 import com.ceiba.entrada.puerto.repositorio.RepositorioEntrada;
@@ -38,5 +41,21 @@ public class ServicioCrearEntradaTest {
         ServicioCrearEntrada servicioCrearEntrada = new ServicioCrearEntrada(repositorioEntrada,servicioCalcularPrecioEntrada);
         // act - assert
         assertEquals(ID,servicioCrearEntrada.ejecutar(entrada));
+    }
+    @Test
+    public void validarCreacionEntradaConAfiliado() {
+        // arrange
+        Long ID = 1L;
+        Entrada entrada = new EntradaTestDataBuilder().build();
+        Afiliado afiliado = new AfiliadoTestDataBuilder().build();
+        RepositorioEntrada repositorioEntrada = Mockito.mock(RepositorioEntrada.class);
+        RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
+        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioEntrada.crear(entrada)).thenReturn(ID);
+        ServicioCrearEntrada servicioCrearEntrada = new ServicioCrearEntrada(repositorioEntrada,repositorioAfiliado,servicioCalcularPrecioEntrada);
+        // act - assert
+        assertEquals(ID,servicioCrearEntrada.ejecutar(entrada,afiliado));
     }
 }
