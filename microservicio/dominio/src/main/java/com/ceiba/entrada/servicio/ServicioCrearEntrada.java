@@ -10,14 +10,18 @@ import com.ceiba.entrada.utils.MensajesDeExcepcionEntrada;
 
 
 public class ServicioCrearEntrada {
-    private final RepositorioEntrada repositorioEntrada;
-    private final RepositorioAfiliado repositorioAfiliado;
+    private  RepositorioEntrada repositorioEntrada;
+    private  RepositorioAfiliado repositorioAfiliado;
 
-    private final ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada;
+    private  ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada;
 
     public ServicioCrearEntrada(RepositorioEntrada repositorioEntrada, RepositorioAfiliado repositorioAfiliado, ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada) {
         this.repositorioEntrada = repositorioEntrada;
         this.repositorioAfiliado = repositorioAfiliado;
+        this.servicioCalcularPrecioEntrada = servicioCalcularPrecioEntrada;
+    }
+    public ServicioCrearEntrada(RepositorioEntrada repositorioEntrada, ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada) {
+        this.repositorioEntrada = repositorioEntrada;
         this.servicioCalcularPrecioEntrada = servicioCalcularPrecioEntrada;
     }
 

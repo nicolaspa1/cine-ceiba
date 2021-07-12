@@ -10,6 +10,8 @@ import org.mockito.Mockito;
 
 import com.ceiba.BasePrueba;
 
+import static org.junit.Assert.assertEquals;
+
 public class ServicioActualizarAfiliadoTest {
 
     @Test
