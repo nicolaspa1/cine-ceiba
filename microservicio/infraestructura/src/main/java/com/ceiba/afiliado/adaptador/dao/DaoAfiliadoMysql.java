@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class DaoAfiliadoMysql implements DaoAfiliado {
@@ -32,13 +31,9 @@ public class DaoAfiliadoMysql implements DaoAfiliado {
     }
 
     @Override
-    public Optional<DtoAfiliado> obtenerAfiliadoPorId(Long id) {
+    public List<DtoAfiliado> obtenerAfiliadoPorId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
-        List<DtoAfiliado> list=this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtener, paramSource, new MapeoAfiliado());
-        if(list.size()==1){
-            return Optional.of(list.get(0));
-        }
-        return Optional.empty();
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtener, paramSource, new MapeoAfiliado());
     }
 }

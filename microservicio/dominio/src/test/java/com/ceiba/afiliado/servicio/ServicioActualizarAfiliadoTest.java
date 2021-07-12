@@ -8,7 +8,10 @@ import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+
 import com.ceiba.BasePrueba;
+
+import static org.mockito.Mockito.*;
 
 public class ServicioActualizarAfiliadoTest {
 
@@ -21,5 +24,17 @@ public class ServicioActualizarAfiliadoTest {
         ServicioActualizarAfiliado servicioActualizarAfiliado = new ServicioActualizarAfiliado(repositorioAfiliado);
         // act - assert
         BasePrueba.assertThrows(() -> servicioActualizarAfiliado.ejecutar(afiliado), ExcepcionSinDatos.class, MensajesDeExcepcion.NO_EXISTE_UN_AFILIADO_REGISTRADO_CON_ESTE_NUMERO_Y_TIPO_DE_DOCUMENTO.getMensaje());
+    }
+
+    @Test
+    public void validarActualizacionAfiliadoTest() {
+        // arrange
+        Afiliado afiliado = new AfiliadoTestDataBuilder().build();
+        RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        ServicioActualizarAfiliado servicioActualizarAfiliado = new ServicioActualizarAfiliado(repositorioAfiliado);
+        // act - assert
+        servicioActualizarAfiliado.ejecutar(afiliado);
+        verify(repositorioAfiliado,times(1)).actualizar(afiliado);
     }
 }
