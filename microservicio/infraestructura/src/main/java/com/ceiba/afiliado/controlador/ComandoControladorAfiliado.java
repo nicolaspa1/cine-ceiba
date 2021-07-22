@@ -40,10 +40,9 @@ public class ComandoControladorAfiliado {
 		manejadorEliminarAfiliado.ejecutar(id);
 	}
 
-	@PutMapping(value="/{id}")
+	@PutMapping
 	@ApiOperation("Actualizar Afiliado")
-	public void actualizar(@RequestBody ComandoAfiliado comandoAfiliado,@PathVariable Long id) {
-		comandoAfiliado.setId(id);
+	public void actualizar(@RequestBody ComandoAfiliado comandoAfiliado) {
 		manejadorActualizarAfiliado.ejecutar(comandoAfiliado);
 	}
 }

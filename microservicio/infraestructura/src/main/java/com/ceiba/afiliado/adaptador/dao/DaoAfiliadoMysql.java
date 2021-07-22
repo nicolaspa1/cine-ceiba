@@ -31,9 +31,13 @@ public class DaoAfiliadoMysql implements DaoAfiliado {
     }
 
     @Override
-    public List<DtoAfiliado> obtenerAfiliadoPorId(Long id) {
+    public DtoAfiliado obtenerAfiliadoPorId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtener, paramSource, new MapeoAfiliado());
+        List<DtoAfiliado> list=this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtener, paramSource, new MapeoAfiliado());
+        if(list.size()==1){
+            return list.get(0);
+        }
+        return null;
     }
 }

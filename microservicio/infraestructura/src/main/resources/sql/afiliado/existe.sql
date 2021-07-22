@@ -1,1 +1,1 @@
-select count(1) from afiliado where tipo_documento = :tipoDocumento and numero_documento = :numeroDocumento
+select count(1) from afiliado where id = :id

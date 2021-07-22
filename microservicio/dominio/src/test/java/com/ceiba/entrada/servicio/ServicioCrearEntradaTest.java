@@ -52,7 +52,7 @@ public class ServicioCrearEntradaTest {
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
         ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(false);
-        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.crear(entrada)).thenReturn(ID);
         ServicioCrearEntrada servicioCrearEntrada = new ServicioCrearEntrada(repositorioEntrada,repositorioAfiliado,servicioCalcularPrecioEntrada);
         // act - assert

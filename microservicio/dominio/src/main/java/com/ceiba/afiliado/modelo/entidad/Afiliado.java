@@ -30,6 +30,7 @@ public class Afiliado {
         validarObligatorio(telefono,MensajesDeExcepcion.SE_DEBE_INGRESAR_TELEFONO_DEL_AFILIADO.getMensaje());
         validarObligatorio(fechaRegistro,MensajesDeExcepcion.SE_DEBE_INGRESAR_LA_FECHA_DE_REGISTRO_DEL_AFILIADO.getMensaje());
         validarMenor(fechaNacimiento,fechaRegistro,MensajesDeExcepcion.LA_FECHA_DE_NACIMIENTO_NO_PUEDE_SER_MAYOR_A_LA_FECHA_DE_REGISTRO.getMensaje());
+        validarRegex(email,MensajesDeExcepcion.REGEX_CORREO.getMensaje(), MensajesDeExcepcion.SE_DEBE_INGRESAR_UN_EMAIL_VALIDO.getMensaje());
 
         this.id = id;
         this.nombre = nombre;

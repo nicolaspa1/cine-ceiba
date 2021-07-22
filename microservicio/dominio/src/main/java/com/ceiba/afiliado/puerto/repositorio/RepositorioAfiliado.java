@@ -2,6 +2,8 @@ package com.ceiba.afiliado.puerto.repositorio;
 
 import com.ceiba.afiliado.modelo.entidad.Afiliado;
 
+import java.util.Optional;
+
 public interface RepositorioAfiliado {
     /**
      * Permite crear un afiliado
@@ -23,12 +25,10 @@ public interface RepositorioAfiliado {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe un afiliado dado su tipo y numero de documento
-     * @param tipoDocumento,numeroDocumento
+     * Permite validar si existe un afiliado dado su id
+     * @param id
      * @return si existe o no
      */
-    boolean existe(String tipoDocumento,String numeroDocumento);
-
-
+    boolean existe(Long id);
 
 }

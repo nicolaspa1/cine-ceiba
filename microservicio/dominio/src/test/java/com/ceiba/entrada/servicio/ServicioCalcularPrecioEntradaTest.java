@@ -23,7 +23,7 @@ public class ServicioCalcularPrecioEntradaTest {
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
 
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
         ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
@@ -41,7 +41,7 @@ public class ServicioCalcularPrecioEntradaTest {
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
 
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
         ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
@@ -59,7 +59,7 @@ public class ServicioCalcularPrecioEntradaTest {
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
 
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
         ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
@@ -78,7 +78,7 @@ public class ServicioCalcularPrecioEntradaTest {
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
 
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
         ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);

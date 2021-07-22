@@ -5,5 +5,5 @@ set nombre = :nombre,
     fecha_nacimiento = :fechaNacimiento,
     email = :email,
     direccion= :direccion,
-    telefono= :telefono,
+    telefono= :telefono
 where id = :id;

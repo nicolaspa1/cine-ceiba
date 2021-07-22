@@ -27,7 +27,7 @@ public class ServicioCrearEntrada {
 
     public Long ejecutar(Entrada entrada, Afiliado afiliado) {
         validarEntradaPrevia(entrada);
-        validarExistenciaAfiliado(afiliado.getTipoDocumento(),afiliado.getNumeroDocumento());
+        validarExistenciaAfiliado(afiliado.getId());
         entrada.setPrecio(servicioCalcularPrecioEntrada.ejecutar(entrada,afiliado));
         return this.repositorioEntrada.crear(entrada);
     }
@@ -43,8 +43,8 @@ public class ServicioCrearEntrada {
             throw new ExcepcionDuplicidad(MensajesDeExcepcionEntrada.YA_EXISTE_UNA_ENTRADA_REGISTRADA_CON_ESTE_ID.getMensaje());
         }
     }
-    private void validarExistenciaAfiliado(String tipoDocumento,String numeroDocumento) {
-        boolean existe = this.repositorioAfiliado.existe(tipoDocumento,numeroDocumento);
+    private void validarExistenciaAfiliado(Long id) {
+        boolean existe = this.repositorioAfiliado.existe(id);
         if (!existe){
             throw new ExcepcionDuplicidad(MensajesDeExcepcion.NO_EXISTE_UN_AFILIADO_REGISTRADO_CON_ESTE_NUMERO_Y_TIPO_DE_DOCUMENTO.getMensaje());
         }

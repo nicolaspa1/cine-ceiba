@@ -19,9 +19,9 @@ public class ServicioActualizarAfiliado {
     }
 
     private void validarExistenciaPrevia(Afiliado afiliado) {
-        boolean existe = this.repositorioAfiliado.existe(afiliado.getTipoDocumento(),afiliado.getNumeroDocumento());
+        boolean existe = this.repositorioAfiliado.existe(afiliado.getId());
         if(!existe) {
-            throw new ExcepcionSinDatos(MensajesDeExcepcion.NO_EXISTE_UN_AFILIADO_REGISTRADO_CON_ESTE_NUMERO_Y_TIPO_DE_DOCUMENTO.getMensaje());
+            throw new ExcepcionSinDatos(MensajesDeExcepcion.NO_EXISTE_UN_AFILIADO_REGISTRADO_CON_ESTE_ID.getMensaje());
         }
     }
 }

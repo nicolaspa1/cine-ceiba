@@ -8,13 +8,14 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 @Getter
 public class Entrada {
 
     private   Long id;
     private   Integer numeroFuncion;
-    private  Double precio;
+    private   Double precio;
     private   String nombrePelicula;
     private   LocalDateTime fechaFuncion;
 
@@ -23,6 +24,9 @@ public class Entrada {
         validarObligatorio(precio,MensajesDeExcepcionEntrada.SE_DEBE_INGRESAR_EL_PRECIO_DE_LA_ENTRADA.getMensaje());
         validarObligatorio(nombrePelicula,MensajesDeExcepcionEntrada.SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_FUNCION.getMensaje());
         validarObligatorio(fechaFuncion,MensajesDeExcepcionEntrada.SE_DEBE_INGRESAR_LA_FECHA_DE_LA_FUNCION.getMensaje());
+        validarPositivo(precio,MensajesDeExcepcionEntrada.EL_PRECIO_DE_LA_ENTRADA_DEBE_SER_POSITIVO.getMensaje());
+        validarPositivo(numeroFuncion.doubleValue(),MensajesDeExcepcionEntrada.EL_NUMERO_DE_FUNCION_DE_LA_ENTRADA_DEBE_SER_POSITIVO.getMensaje());
+
         this.id = id;
         this.numeroFuncion = numeroFuncion;
         this.precio = precio;

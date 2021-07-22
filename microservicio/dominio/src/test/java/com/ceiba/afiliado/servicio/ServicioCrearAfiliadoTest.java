@@ -21,10 +21,10 @@ public class ServicioCrearAfiliadoTest {
         // arrange
         Afiliado afiliado = new AfiliadoTestDataBuilder().build();
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
-        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         ServicioCrearAfiliado servicioCrearAfiliado = new ServicioCrearAfiliado(repositorioAfiliado);
         // act - assert
-        BasePrueba.assertThrows(() -> servicioCrearAfiliado.ejecutar(afiliado), ExcepcionValorInvalido.class, MensajesDeExcepcion.YA_EXISTE_UN_AFILIADO_REGISTRADO_CON_ESTE_NUMERO_Y_TIPO_DE_DOCUMENTO.getMensaje());
+        BasePrueba.assertThrows(() -> servicioCrearAfiliado.ejecutar(afiliado), ExcepcionValorInvalido.class, MensajesDeExcepcion.YA_EXISTE_UN_AFILIADO_REGISTRADO_CON_ESTE_ID.getMensaje());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class ServicioCrearAfiliadoTest {
         Long ID = 1L;
         Afiliado afiliado = new AfiliadoTestDataBuilder().build();
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
-        Mockito.when(repositorioAfiliado.existe(Mockito.anyString(),Mockito.anyString())).thenReturn(false);
+        Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(false);
         Mockito.when(repositorioAfiliado.crear(afiliado)).thenReturn(ID);
         ServicioCrearAfiliado servicioCrearAfiliado = new ServicioCrearAfiliado(repositorioAfiliado);
         // act - assert

@@ -48,10 +48,9 @@ public class RepositorioAfiliadoMysql implements RepositorioAfiliado {
     }
 
     @Override
-    public boolean existe(String tipoDocumento, String numeroDocumento) {
+    public boolean existe(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("tipoDocumento", tipoDocumento);
-        paramSource.addValue("numeroDocumento", numeroDocumento);
+        paramSource.addValue("id", id);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
     }
 }
