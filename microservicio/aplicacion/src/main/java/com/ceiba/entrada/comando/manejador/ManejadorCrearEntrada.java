@@ -1,7 +1,6 @@
 package com.ceiba.entrada.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.afiliado.modelo.entidad.Afiliado;
 import com.ceiba.entrada.comando.ComandoEntrada;
 import com.ceiba.entrada.comando.fabrica.FabricaEntrada;
 import com.ceiba.entrada.modelo.entidad.Entrada;
@@ -24,9 +23,5 @@ public class ManejadorCrearEntrada implements ManejadorComandoRespuesta<ComandoE
     public ComandoRespuesta<Long> ejecutar(ComandoEntrada comando) {
         Entrada entrada = this.fabricaEntrada.crear(comando);
         return new ComandoRespuesta<>(this.servicioCrearEntrada.ejecutar(entrada));
-    }
-    public ComandoRespuesta<Long> ejecutar(ComandoEntrada comando,Afiliado afiliado) {
-        Entrada entrada = this.fabricaEntrada.crear(comando);
-        return new ComandoRespuesta<>(this.servicioCrearEntrada.ejecutar(entrada,afiliado));
     }
 }

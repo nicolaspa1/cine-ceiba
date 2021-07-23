@@ -22,9 +22,11 @@ public class ServicioCrearEntradaTest {
         // arrange
         Entrada entrada  = new EntradaTestDataBuilder().build();
         RepositorioEntrada repositorioEntrada = Mockito.mock(RepositorioEntrada.class);
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada();
+
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
         ServicioCrearEntrada servicioCrearEntrada = new ServicioCrearEntrada(repositorioEntrada,servicioCalcularPrecioEntrada);
+
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearEntrada.ejecutar(entrada), ExcepcionDuplicidad.class, MensajesDeExcepcionEntrada.YA_EXISTE_UNA_ENTRADA_REGISTRADA_CON_ESTE_ID.getMensaje());
     }
@@ -35,7 +37,7 @@ public class ServicioCrearEntradaTest {
         Long ID = 1L;
         Entrada entrada = new EntradaTestDataBuilder().build();
         RepositorioEntrada repositorioEntrada = Mockito.mock(RepositorioEntrada.class);
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada();
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(false);
         Mockito.when(repositorioEntrada.crear(entrada)).thenReturn(ID);
         ServicioCrearEntrada servicioCrearEntrada = new ServicioCrearEntrada(repositorioEntrada,servicioCalcularPrecioEntrada);
@@ -50,12 +52,12 @@ public class ServicioCrearEntradaTest {
         Afiliado afiliado = new AfiliadoTestDataBuilder().build();
         RepositorioEntrada repositorioEntrada = Mockito.mock(RepositorioEntrada.class);
         RepositorioAfiliado repositorioAfiliado = Mockito.mock(RepositorioAfiliado.class);
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntradaAfiliado servicioCalcularPrecioEntradaAfiliado = new ServicioCalcularPrecioEntradaAfiliado(repositorioEntrada);
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(false);
         Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.crear(entrada)).thenReturn(ID);
-        ServicioCrearEntrada servicioCrearEntrada = new ServicioCrearEntrada(repositorioEntrada,repositorioAfiliado,servicioCalcularPrecioEntrada);
+        ServicioCrearEntradaAfiliado servicioCrearEntradaAfiliado = new ServicioCrearEntradaAfiliado(repositorioEntrada,repositorioAfiliado,servicioCalcularPrecioEntradaAfiliado);
         // act - assert
-        assertEquals(ID,servicioCrearEntrada.ejecutar(entrada,afiliado));
+        assertEquals(ID,servicioCrearEntradaAfiliado.ejecutar(entrada,afiliado));
     }
 }

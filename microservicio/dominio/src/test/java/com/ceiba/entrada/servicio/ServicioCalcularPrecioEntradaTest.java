@@ -26,7 +26,7 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntradaAfiliado servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntradaAfiliado(repositorioEntrada);
 
         // act - assert
         assertEquals (5000, servicioCalcularPrecioEntrada.ejecutar(entrada,afiliado).doubleValue());
@@ -44,7 +44,7 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntradaAfiliado servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntradaAfiliado(repositorioEntrada);
 
         // act - assert
         assertEquals (5000, servicioCalcularPrecioEntrada.ejecutar(entrada,afiliado).doubleValue());
@@ -62,10 +62,10 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntradaAfiliado servicioCalcularPrecioEntradaAfiliado = new ServicioCalcularPrecioEntradaAfiliado(repositorioEntrada);
 
         // act - assert
-        assertEquals (7000, servicioCalcularPrecioEntrada.ejecutar(entrada,afiliado).doubleValue());
+        assertEquals (7000, servicioCalcularPrecioEntradaAfiliado.ejecutar(entrada,afiliado).doubleValue());
     }
     @Test
     public void validarPrecioFinDeSemanaAfiliado() {
@@ -81,7 +81,7 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioAfiliado.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntradaAfiliado servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntradaAfiliado(repositorioEntrada);
 
         // act - assert
         assertEquals (10000, servicioCalcularPrecioEntrada.ejecutar(entrada,afiliado).doubleValue());
@@ -98,7 +98,7 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada();
 
         // act - assert
         assertEquals (9000, servicioCalcularPrecioEntrada.ejecutar(entrada).doubleValue());
@@ -113,7 +113,7 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada();
 
         // act - assert
         assertEquals (10000, servicioCalcularPrecioEntrada.ejecutar(entrada).doubleValue());
@@ -128,7 +128,7 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada();
 
         // act - assert
         assertEquals (10000, servicioCalcularPrecioEntrada.ejecutar(entrada).doubleValue());
@@ -143,7 +143,7 @@ public class ServicioCalcularPrecioEntradaTest {
         Mockito.when(repositorioEntrada.existe(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioEntrada.ofertaDeAfiliado(Mockito.anyString(),Mockito.anyString())).thenReturn(true);
 
-        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada(repositorioEntrada);
+        ServicioCalcularPrecioEntrada servicioCalcularPrecioEntrada = new ServicioCalcularPrecioEntrada();
 
         // act - assert
         assertEquals (12500, servicioCalcularPrecioEntrada.ejecutar(entrada).doubleValue());

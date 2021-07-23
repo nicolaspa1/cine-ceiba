@@ -4,7 +4,6 @@ package com.ceiba.afiliado.comando.manejador;
 import com.ceiba.afiliado.modelo.dto.DtoAfiliado;
 import com.ceiba.afiliado.puerto.dao.DaoAfiliado;
 import org.springframework.stereotype.Component;
-import java.util.Optional;
 
 @Component
 public class ManejadorBuscarAfiliado  {

@@ -39,9 +39,12 @@ public class ComandoControladorEntrada {
 		manejadorEliminarEntrada.ejecutar(id);
 	}
 
+
 	@PostMapping(value="/precio-entrada")
 	@ApiOperation("Calcular precio entrada")
 	public ComandoRespuesta<Double> calcularPrecio(@RequestBody ComandoEntrada comandoEntrada) {
 		return manejadorCalcularPrecioEntrada.ejecutar(comandoEntrada);
 	}
+
+
 }

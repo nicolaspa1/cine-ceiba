@@ -2,8 +2,6 @@ package com.ceiba.afiliado.puerto.repositorio;
 
 import com.ceiba.afiliado.modelo.entidad.Afiliado;
 
-import java.util.Optional;
-
 public interface RepositorioAfiliado {
     /**
      * Permite crear un afiliado

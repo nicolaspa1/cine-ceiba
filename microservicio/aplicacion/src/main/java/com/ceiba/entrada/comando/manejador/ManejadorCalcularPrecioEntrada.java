@@ -1,7 +1,6 @@
 package com.ceiba.entrada.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.afiliado.modelo.entidad.Afiliado;
 import com.ceiba.entrada.comando.ComandoEntrada;
 import com.ceiba.entrada.comando.fabrica.FabricaEntrada;
 import com.ceiba.entrada.modelo.entidad.Entrada;
@@ -27,8 +26,4 @@ public class ManejadorCalcularPrecioEntrada implements ManejadorComandoRespuesta
         return new ComandoRespuesta<>(servicioCalcularPrecioEntrada.ejecutar(entrada));
     }
 
-    public ComandoRespuesta<Double> ejecutar(ComandoEntrada comando, Afiliado afiliado) {
-        Entrada entrada = this.fabricaEntrada.crear(comando);
-        return new ComandoRespuesta<>(servicioCalcularPrecioEntrada.ejecutar(entrada,afiliado));
-    }
 }
