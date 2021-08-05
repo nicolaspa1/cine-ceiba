@@ -31,10 +31,4 @@ public class ComandoControladorEntradaAfiliado {
         return manejadorCrearEntradaAfiliado.ejecutar(comandoEntrada,comandoAfiliado);
     }
 
-
-    @PostMapping(value="/precio-entrada-afiliado")
-    @ApiOperation("Calcular precio entrada afiliado")
-    public ComandoRespuesta<Double> calcularPrecioAfiliado(@RequestBody ComandoEntrada comandoEntrada, @RequestBody ComandoAfiliado comandoAfiliado) {
-        return manejadorCalcularPrecioEntradaAfiliado.ejecutar(comandoEntrada,comandoAfiliado);
-    }
 }
